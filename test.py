@@ -1,11 +1,10 @@
-import ChatTTS
-from IPython.display import Audio
-
-chat = ChatTTS.Chat()
-chat.load_models(compile=False) # 设置为True以获得更快速度
-
-texts = ["在这里输入你的文本",]
-
-wavs = chat.infer(texts, use_decoder=True)
-
-torchaudio.save("output1.wav", torch.from_numpy(wavs[0]), 24000)
+import ChatTTS  
+from IPython.display import Audio  
+  
+chat = ChatTTS.Chat()  
+chat.load_models()  
+  
+texts = ["你好啊",]  
+  
+wavs = chat.infer(texts, use_decoder=True)  
+Audio(wavs[0], rate=24_000, autoplay=True)

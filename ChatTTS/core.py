@@ -139,7 +139,7 @@ class Chat:
         
         if not isinstance(text, list): 
             text = [text]
-        
+        '''
         if do_text_normalization:
             for i, t in enumerate(text):
                 _lang = detect_language(t) if lang is None else lang
@@ -147,7 +147,7 @@ class Chat:
                 text[i] = self.normalizer[_lang](t)
                 if _lang == 'zh':
                     text[i] = apply_half2full_map(text[i])
-            
+        '''
         for i, t in enumerate(text):
             invalid_characters = count_invalid_characters(t)
             if len(invalid_characters):
